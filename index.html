@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Letrero</title>
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.0/normalize.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Letrero</h1>
+      <ul class="control_list">
+        <li id="metronomo">METRÓNOMO</li>
+        <li id="play">PLAY</li>
+        <li id="pause">PAUSE</li>
+      </ul>
+    </header>
+    <main id="contenido" class="contenido">
+      <div class="contenedor">
+        <div id="contenedor_text" class="contenedor_text">
+          <form action="#" id="formulario-text">
+            <div class="input">
+              <label for="lyric_area">Letra: <span>*</span></label>
+              <textarea
+                name="lyric_area"
+                id="lyric_area"
+                rows="10"
+                cols="40"
+              ></textarea>
+            </div>
+            <div class="input enviar">
+              <input type="submit" value="Reproducción" />
+            </div>
+          </form>
+        </div>
+        <div class="lyric-result">
+          <ul class="lyric-list"></ul>
+          <div id="mensajes"></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/app.js" type="module"></script>
+  </body>
+</html>
