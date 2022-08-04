@@ -1,4 +1,5 @@
 import * as UI from "./interfaz.js";
+import Timer from "./timer.js";
 
 const armarCancion = (e) => {
   e.preventDefault();
@@ -42,4 +43,26 @@ const llenarLetra = (lineas) => {
   });
 };
 
+const myTimer = new Timer(
+  () => {
+    console.log("SUCCESS!!");
+  },
+  1000,
+  () => {
+    console.log("ERROR!!");
+  }
+);
+
+const startTimer = () => {
+  myTimer.start();
+};
+
+const stopTimer = () => {
+  myTimer.stop();
+};
+
 UI.formularioText.addEventListener("submit", armarCancion);
+
+UI.playBTN.addEventListener("click", startTimer);
+
+UI.stopBTN.addEventListener("click", stopTimer);
