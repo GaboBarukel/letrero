@@ -32,7 +32,16 @@ const limpiarLetra = () => {
 const llenarLetra = (lineas) => {
   lineas.forEach((linea) => {
     let liElement = document.createElement("li");
+
+    // ADD ACTIVE CLASS TO FIRST
+    // if (lineas.indexOf(linea) === 0) {
+    //   liElement.classList.add("active");
+    // } else {
+    //   liElement.classList.add("estilo-li");
+    // }
+
     liElement.classList.add("estilo-li");
+
     if (linea === "") {
       let br = document.createElement("br");
       liElement.appendChild(br);
@@ -43,9 +52,18 @@ const llenarLetra = (lineas) => {
   });
 };
 
+let activeIndex = 0;
+
 const myTimer = new Timer(
   () => {
-    console.log("SUCCESS!!");
+    let ulChildrens = UI.headingResultado.children;
+    if (activeIndex < ulChildrens.length) {
+      ulChildrens[activeIndex].classList.add("active");
+      if (activeIndex >= 1) {
+        ulChildrens[activeIndex - 1].classList.remove("active");
+      }
+      activeIndex++;
+    }
   },
   1000,
   () => {
@@ -59,6 +77,7 @@ const startTimer = () => {
 
 const stopTimer = () => {
   myTimer.stop();
+  activeIndex = 0;
 };
 
 UI.formularioText.addEventListener("submit", armarCancion);

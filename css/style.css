@@ -79,6 +79,10 @@ h2 {
   font-size: 1.5em;
 }
 
+.active {
+  background-color: red;
+}
+
 @media (min-width: 768px) {
   .contenedor {
     display: flex;
