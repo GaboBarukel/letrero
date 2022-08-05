@@ -52,18 +52,22 @@ const llenarLetra = (lineas) => {
   });
 };
 
+const lyricIteration = (activeIndex, lyricUL) => {
+  if (activeIndex < lyricUL.length) {
+    lyricUL[activeIndex].classList.add("active");
+    if (activeIndex >= 1) {
+      lyricUL[activeIndex - 1].classList.remove("active");
+    }
+  }
+};
+
 let activeIndex = 0;
 
 const myTimer = new Timer(
   () => {
-    let ulChildrens = UI.headingResultado.children;
-    if (activeIndex < ulChildrens.length) {
-      ulChildrens[activeIndex].classList.add("active");
-      if (activeIndex >= 1) {
-        ulChildrens[activeIndex - 1].classList.remove("active");
-      }
-      activeIndex++;
-    }
+    let lyricUL = UI.headingResultado.children;
+    lyricIteration(activeIndex, lyricUL);
+    activeIndex++;
   },
   1000,
   () => {
