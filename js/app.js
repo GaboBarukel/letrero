@@ -1,6 +1,36 @@
 import * as UI from "./interfaz.js";
 import Timer from "./timer.js";
 
+//CONTROL DEL METRÓNOMO
+let bpm = 140;
+
+UI.decreaseTempoBTN.addEventListener("click", () => {
+  if (bpm <= 20) {
+    return;
+  }
+  bpm--;
+  updateMetronome();
+});
+UI.increaseTempoBTN.addEventListener("click", () => {
+  if (bpm >= 280) {
+    return;
+  }
+  bpm++;
+  updateMetronome();
+});
+
+UI.tempoSlider.addEventListener("input", () => {
+  bpm = UI.tempoSlider.value;
+  updateMetronome();
+});
+
+function updateMetronome() {
+  UI.tempoDisplay.textContent = bpm;
+  UI.tempoSlider.value = bpm;
+  myTimer.timeInterval = 60000 / bpm;
+}
+
+//MANEJO DE LA LETRA
 const armarCancion = (e) => {
   e.preventDefault();
 
@@ -33,13 +63,6 @@ const llenarLetra = (lineas) => {
   lineas.forEach((linea) => {
     let liElement = document.createElement("li");
 
-    // ADD ACTIVE CLASS TO FIRST
-    // if (lineas.indexOf(linea) === 0) {
-    //   liElement.classList.add("active");
-    // } else {
-    //   liElement.classList.add("estilo-li");
-    // }
-
     liElement.classList.add("estilo-li");
 
     if (linea === "") {
@@ -52,6 +75,7 @@ const llenarLetra = (lineas) => {
   });
 };
 
+//ITERACIÓN DE LA LETRA
 const lyricIteration = (activeIndex, lyricUL) => {
   if (activeIndex < lyricUL.length) {
     lyricUL[activeIndex].classList.add("active");
@@ -63,29 +87,33 @@ const lyricIteration = (activeIndex, lyricUL) => {
 
 let activeIndex = 0;
 
+//TIMER
+let isRunning = false;
+
 const myTimer = new Timer(
   () => {
     let lyricUL = UI.headingResultado.children;
     lyricIteration(activeIndex, lyricUL);
     activeIndex++;
   },
-  500,
-  () => {
-    console.log("ERROR!!");
-  }
+  60000 / bpm,
+  { immediate: true }
 );
 
-const startTimer = () => {
-  myTimer.start();
-};
-
-const stopTimer = () => {
-  myTimer.stop();
-  activeIndex = 0;
+//TIMER
+const controlTimer = () => {
+  if (!isRunning) {
+    myTimer.start();
+    isRunning = true;
+    UI.metronomeControllerBTN.textContent = "STOP";
+  } else {
+    myTimer.stop();
+    activeIndex = 0;
+    isRunning = false;
+    UI.metronomeControllerBTN.textContent = "START";
+  }
 };
 
 UI.formularioText.addEventListener("submit", armarCancion);
 
-UI.playBTN.addEventListener("click", startTimer);
-
-UI.stopBTN.addEventListener("click", stopTimer);
+UI.metronomeControllerBTN.addEventListener("click", controlTimer);

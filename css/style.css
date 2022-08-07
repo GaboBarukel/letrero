@@ -17,6 +17,7 @@ body {
   );
   font-family: "Montserrat", sans-serif;
   min-height: 100%;
+  user-select: none;
 }
 h1 {
   font-weight: 400;
@@ -92,11 +93,13 @@ input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 1px;
   background-color: black;
+  cursor: pointer;
 }
 input[type="range"]::-moz-range-track {
   width: 100%;
   height: 1px;
   background-color: black;
+  cursor: pointer;
 }
 
 .tempo-settings .adjust-tempo-btn {
