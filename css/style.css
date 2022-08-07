@@ -27,6 +27,109 @@ h2 {
   text-align: center;
 }
 
+.metronome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 130px;
+  margin-bottom: 8px;
+}
+
+.metronome {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 40%;
+}
+
+.bpm-display {
+  text-align: center;
+  font-weight: bold;
+}
+
+.bpm-display .tempo {
+  font-size: 2em;
+}
+
+.tempo-settings {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* REMOVE SLIDER STYLE FIRST */
+input[type="range"] {
+  -webkit-appearance: none;
+  background-color: transparent;
+  width: 80%;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+
+/* ADD STYLE AFTER */
+input[type="range"]::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: black;
+  cursor: pointer;
+  margin-top: -8px;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: black;
+  cursor: pointer;
+  border: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
+.tempo-settings .adjust-tempo-btn {
+  width: 20px;
+  height: 20px;
+  font-size: 17px;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tempo-settings .adjust-tempo-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.start-stop {
+  background-color: #6f86d6;
+  padding: 0.5rem 2rem;
+  color: black;
+  align-self: center;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.start-stop:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
 .contenido {
   background-color: white;
   max-width: 1100px;
@@ -47,7 +150,7 @@ h2 {
   align-items: center;
 }
 
-.control_list {
+/* .control_list {
   height: 3.5rem;
   list-style: none;
   padding: 0;
@@ -58,7 +161,7 @@ h2 {
 
 .control_list li {
   cursor: pointer;
-}
+} */
 
 .lyric-result {
   height: auto;

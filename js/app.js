@@ -69,7 +69,7 @@ const myTimer = new Timer(
     lyricIteration(activeIndex, lyricUL);
     activeIndex++;
   },
-  1000,
+  500,
   () => {
     console.log("ERROR!!");
   }
