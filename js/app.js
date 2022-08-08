@@ -3,6 +3,9 @@ import Timer from "./timer.js";
 
 //CONTROL DEL METRÓNOMO
 let bpm = 140;
+let beatsPerMeasure = 4;
+let count = 0;
+let flashSpeed = 150;
 
 UI.decreaseTempoBTN.addEventListener("click", () => {
   if (bpm <= 20) {
@@ -10,19 +13,65 @@ UI.decreaseTempoBTN.addEventListener("click", () => {
   }
   bpm--;
   updateMetronome();
+  pulseSpeedUpdate();
 });
 UI.increaseTempoBTN.addEventListener("click", () => {
-  if (bpm >= 280) {
+  if (bpm >= 160) {
     return;
   }
   bpm++;
   updateMetronome();
+  pulseSpeedUpdate();
 });
 
 UI.tempoSlider.addEventListener("input", () => {
   bpm = UI.tempoSlider.value;
   updateMetronome();
+  pulseSpeedUpdate();
 });
+
+UI.subtractBeats.addEventListener("click", () => {
+  if (beatsPerMeasure <= 2) {
+    return;
+  }
+  beatsPerMeasure--;
+  UI.measureCount.innerText = beatsPerMeasure;
+});
+UI.addBeats.addEventListener("click", () => {
+  if (beatsPerMeasure >= 12) {
+    return;
+  }
+  beatsPerMeasure++;
+  UI.measureCount.innerText = beatsPerMeasure;
+});
+
+function pulseSpeedUpdate() {
+  if (bpm <= 80) {
+    flashSpeed = 200;
+  } else if (bpm > 80 && bpm <= 140) {
+    flashSpeed = 150;
+  } else {
+    flashSpeed = 70;
+  }
+}
+
+function playMeasureCount() {
+  if (count === beatsPerMeasure) {
+    count = 0;
+  }
+  if (count === 0) {
+    UI.pulseDisplay.classList.add("pulse-first");
+    setTimeout(() => {
+      UI.pulseDisplay.classList.remove("pulse-first");
+    }, flashSpeed);
+  } else {
+    UI.pulseDisplay.classList.add("pulse-other");
+    setTimeout(() => {
+      UI.pulseDisplay.classList.remove("pulse-other");
+    }, flashSpeed);
+  }
+  count++;
+}
 
 function updateMetronome() {
   UI.tempoDisplay.textContent = bpm;
@@ -95,6 +144,7 @@ const myTimer = new Timer(
     let lyricUL = UI.headingResultado.children;
     lyricIteration(activeIndex, lyricUL);
     activeIndex++;
+    playMeasureCount();
   },
   60000 / bpm,
   { immediate: true }
@@ -109,6 +159,7 @@ const controlTimer = () => {
   } else {
     myTimer.stop();
     activeIndex = 0;
+    count = 0;
     isRunning = false;
     UI.metronomeControllerBTN.textContent = "START";
   }
