@@ -28,20 +28,32 @@ h2 {
   text-align: center;
 }
 
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 20px;
+}
+
 .metronome-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  height: 150px;
+  height: 300px;
+  width: 50%;
   margin-bottom: 8px;
 }
 
 .metronome {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: 100%;
-  width: 40%;
+  width: 80%;
 }
 
 .bpm-display {
@@ -121,7 +133,7 @@ input[type="range"]::-moz-range-track {
 .start-stop {
   background-color: #6f86d6;
   padding: 0.5rem 2rem;
-  color: black;
+  color: white;
   align-self: center;
   border: none;
   transition: background-color 0.3s ease-in-out;
@@ -129,8 +141,7 @@ input[type="range"]::-moz-range-track {
 
 .start-stop:hover {
   cursor: pointer;
-  background-color: white;
-  color: black;
+  background-color: #384e9d;
 }
 
 .measures {
@@ -169,17 +180,10 @@ input[type="range"]::-moz-range-track {
   background-color: white;
 }
 
-.contenido {
-  background-color: white;
-  max-width: 1100px;
-  margin: 0 auto;
-  height: 100%;
-  padding: 20px;
-}
-
 .contenedor {
   display: flex;
   flex-direction: column;
+  width: 80%;
 }
 
 .contenedor_text {
@@ -188,19 +192,6 @@ input[type="range"]::-moz-range-track {
   justify-content: center;
   align-items: center;
 }
-
-/* .control_list {
-  height: 3.5rem;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.control_list li {
-  cursor: pointer;
-} */
 
 .lyric-result {
   height: auto;
@@ -225,19 +216,6 @@ input[type="range"]::-moz-range-track {
   background-color: red;
 }
 
-@media (min-width: 768px) {
-  .contenedor {
-    display: flex;
-  }
-  .contenedor > div {
-    flex: 1 0 50%;
-  }
-}
-
-.formulario-busqueda span {
-  color: red;
-}
-
 .input {
   margin-bottom: 1rem;
   display: flex;
@@ -258,7 +236,7 @@ input[type="range"]::-moz-range-track {
   height: 2.5rem;
   padding: 1rem;
   display: flex;
-  flex: 1;
+  /* flex: 1; */
 }
 .enviar {
   text-align: right;
@@ -288,4 +266,13 @@ input[type="range"]::-moz-range-track {
 #resultado {
   white-space: pre-wrap;
   padding: 2rem;
+}
+
+@media (min-width: 1366px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 480px) {
 }

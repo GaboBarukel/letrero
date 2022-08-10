@@ -1,4 +1,4 @@
-export const formularioText = document.querySelector("#formulario-text"),
+export const formularioText = document.querySelector("#text-form"),
   divMensajes = document.querySelector("#mensajes"),
   headingResultado = document.querySelector(".lyric-result ul"),
   tempoDisplay = document.querySelector(".tempo"),

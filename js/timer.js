@@ -12,13 +12,11 @@ class Timer {
       this.callback();
     }
     this.timeout = setTimeout(this.round, this.timeInterval);
-    console.log("timer started");
   };
 
   //Stop timer
   stop = () => {
     clearTimeout(this.timeout);
-    console.log("timer stopped");
   };
 
   //Method that take cares of running our callback and adjusting the time interval
