@@ -417,7 +417,88 @@ input[type="range"]::-moz-range-track {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 3em;
+    font-size: 2em;
+    margin: 10px auto;
+  }
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 90%;
+    margin: 0 auto;
+    height: 100%;
+    padding: 10px;
+  }
+  .metronome-container {
+    height: 120px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .bpm-display .tempo {
+    font-size: 1.2em;
+  }
+  .bpm-display .bpm {
+    font-size: 0.7em;
+  }
+  .tempo-settings {
+    justify-content: center;
+  }
+  input[type="range"] {
+    width: 50%;
+    margin: 0 5px;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+  }
+  .tempo-settings .adjust-tempo-btn {
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+  }
+  .start-stop {
+    font-size: 12px;
+    padding: 0.3rem 1.5rem;
+  }
+  .measure-count {
+    font-size: 12px;
+  }
+  .measures .stepper {
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+  }
+  .pulse {
+    width: 15px;
+    height: 15px;
+  }
+  .text-container {
+    height: 280px;
+  }
+  .input {
+    margin-bottom: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .input label {
+    flex: 0 0 40px;
+    font-size: 15px;
+  }
+  .input input[type="submit"] {
+    font-size: 12px;
+    padding: 0.3rem 1.5rem;
+  }
+  .error {
+    font-size: 12px;
+    padding: 0.5rem;
   }
 }
 
