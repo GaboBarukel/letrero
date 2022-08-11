@@ -21,7 +21,6 @@ body {
 }
 h1 {
   font-weight: 400;
-  font-size: 3em;
   text-align: center;
 }
 h2 {
@@ -32,10 +31,10 @@ h2 {
   display: flex;
   justify-content: space-between;
   background-color: white;
-  max-width: 1100px;
+  /* max-width: 1100px;
   margin: 0 auto;
   height: 100%;
-  padding: 20px;
+  padding: 20px; */
 }
 
 .metronome-container {
@@ -43,9 +42,9 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 300px;
+  /* height: 300px;
   width: 50%;
-  margin-bottom: 8px;
+  margin-bottom: 8px; */
 }
 
 .metronome {
@@ -61,9 +60,9 @@ h2 {
   font-weight: bold;
 }
 
-.bpm-display .tempo {
+/* .bpm-display .tempo {
   font-size: 2em;
-}
+} */
 
 .tempo-settings {
   display: flex;
@@ -85,16 +84,16 @@ input[type="range"]:focus {
 
 /* ADD STYLE AFTER */
 input[type="range"]::-webkit-slider-thumb {
-  width: 16px;
+  /* width: 16px;
   height: 16px;
+  margin-top: -8px; */
   border-radius: 50%;
   background-color: black;
   cursor: pointer;
-  margin-top: -8px;
 }
 input[type="range"]::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
+  /* width: 15px;
+  height: 15px; */
   border-radius: 50%;
   background-color: black;
   cursor: pointer;
@@ -102,24 +101,24 @@ input[type="range"]::-moz-range-thumb {
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
+  /* height: 1px; */
   width: 100%;
-  height: 1px;
   background-color: black;
   cursor: pointer;
 }
 input[type="range"]::-moz-range-track {
+  /* height: 1px; */
   width: 100%;
-  height: 1px;
   background-color: black;
   cursor: pointer;
 }
 
 .tempo-settings .adjust-tempo-btn {
-  width: 20px;
+  /* width: 20px;
   height: 20px;
   font-size: 17px;
+  border: 1px solid black; */
   font-weight: bold;
-  border: 1px solid black;
   border-radius: 50%;
   text-align: center;
   cursor: pointer;
@@ -132,7 +131,7 @@ input[type="range"]::-moz-range-track {
 
 .start-stop {
   background-color: #6f86d6;
-  padding: 0.5rem 2rem;
+  /* padding: 0.5rem 2rem; */
   color: white;
   align-self: center;
   border: none;
@@ -150,13 +149,13 @@ input[type="range"]::-moz-range-track {
 }
 
 .measures .stepper {
-  width: 20px;
+  /* width: 20px;
   height: 20px;
-  border-radius: 50%;
   border: 1px solid black;
+  margin: 0 5px; */
+  border-radius: 50%;
   text-align: center;
   font-weight: bold;
-  margin: 0 5px;
   cursor: pointer;
 }
 
@@ -166,8 +165,8 @@ input[type="range"]::-moz-range-track {
 }
 
 .pulse {
-  width: 20px;
-  height: 20px;
+  /* width: 20px;
+  height: 20px; */
   background-color: black;
   margin: 0 auto;
 }
@@ -177,16 +176,16 @@ input[type="range"]::-moz-range-track {
 }
 
 .pulse-other {
-  background-color: white;
+  background-color: #6f86d6;
 }
 
-.contenedor {
+.form-and-text-container {
   display: flex;
   flex-direction: column;
   width: 80%;
 }
 
-.contenedor_text {
+.text-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -209,7 +208,7 @@ input[type="range"]::-moz-range-track {
 
 .lyric-list li {
   font-weight: 300;
-  font-size: 1.5em;
+  /* font-size: 1.5em; */
 }
 
 .active {
@@ -223,7 +222,7 @@ input[type="range"]::-moz-range-track {
   align-items: center;
 }
 .input label {
-  flex: 0 0 40px;
+  /* flex: 0 0 40px; */
   text-align: center;
   margin-right: 1rem;
   font-weight: 700;
@@ -236,12 +235,12 @@ input[type="range"]::-moz-range-track {
   height: 2.5rem;
   padding: 1rem;
   display: flex;
-  /* flex: 1; */
+  flex: 1;
 }
-.enviar {
+/* .enviar {
   text-align: right;
   justify-content: flex-end !important;
-}
+} */
 .input input[type="submit"] {
   background-color: #6f86d6;
   padding: 0.5rem 2rem;
@@ -263,16 +262,167 @@ input[type="range"]::-moz-range-track {
   text-align: center;
 }
 
-#resultado {
-  white-space: pre-wrap;
-  padding: 2rem;
+@media (max-width: 1920px) {
+  h1 {
+    font-size: 5em;
+  }
+  .main-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 20px;
+  }
+  .metronome-container {
+    height: 500px;
+    width: 50%;
+  }
+  .bpm-display .tempo {
+    font-size: 4em;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    width: 27px;
+    height: 27px;
+    margin-top: -13.5px;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 26px;
+    height: 26px;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 2px;
+  }
+  input[type="range"]::-moz-range-track {
+    height: 2px;
+  }
+  .tempo-settings .adjust-tempo-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    border: 2px solid black;
+  }
+  .start-stop {
+    font-size: 30px;
+    padding: 1rem 3rem;
+  }
+  .measure-count {
+    font-size: 28px;
+  }
+  .measures .stepper {
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    border: 2px solid black;
+    margin: 0 5px;
+  }
+  .pulse {
+    width: 36px;
+    height: 36px;
+  }
+  .text-container {
+    height: 500px;
+  }
+  .input label {
+    flex: 0 0 40px;
+    font-size: 30px;
+  }
+  .input input[type="submit"] {
+    font-size: 30px;
+    padding: 1rem 3rem;
+  }
+  .lyric-list li {
+    font-size: 2.5em;
+  }
+  .error {
+    font-size: 30px;
+    padding: 1.7rem;
+  }
 }
 
-@media (min-width: 1366px) {
+@media (max-width: 1366px) {
+  h1 {
+    font-size: 3em;
+  }
+  .main-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 20px;
+  }
+  .metronome-container {
+    height: 300px;
+    width: 50%;
+  }
+  .bpm-display .tempo {
+    font-size: 2em;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 1px;
+  }
+  input[type="range"]::-moz-range-track {
+    height: 1px;
+  }
+  .tempo-settings .adjust-tempo-btn {
+    width: 20px;
+    height: 20px;
+    font-size: 17px;
+    border: 1px solid black;
+  }
+  .start-stop {
+    font-size: 15px;
+    padding: 0.5rem 2rem;
+  }
+  .measure-count {
+    font-size: 17px;
+  }
+  .measures .stepper {
+    width: 20px;
+    height: 20px;
+    font-size: 17px;
+    border: 1px solid black;
+    margin: 0 5px;
+  }
+  .pulse {
+    width: 20px;
+    height: 20px;
+  }
+  .text-container {
+    height: 300px;
+  }
+  .input label {
+    flex: 0 0 40px;
+    font-size: 17px;
+  }
+  .input input[type="submit"] {
+    font-size: 15px;
+    padding: 0.5rem 2rem;
+  }
+  .lyric-list li {
+    font-size: 1.5em;
+  }
+  .error {
+    font-size: 17px;
+    padding: 1rem;
+  }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3em;
+  }
 }
 
-@media (min-width: 480px) {
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1em;
+  }
 }
