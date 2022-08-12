@@ -83,9 +83,9 @@ function updateMetronome() {
 const armarCancion = (e) => {
   e.preventDefault();
 
-  const letra = document.querySelector("#lyric_area").value;
+  const letra = document.querySelector("#lyric-area").value;
   // Arreglo de letra
-  const lyrArr = document.querySelector("#lyric_area").value.split("\n");
+  const lyrArr = document.querySelector("#lyric-area").value.split("\n");
   limpiarLetra();
   if (letra === "") {
     UI.divMensajes.textContent = "Error.. no hay letra..";

@@ -216,7 +216,9 @@ input[type="range"]::-moz-range-track {
 }
 
 .input {
+  width: 100%;
   margin-bottom: 1rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -231,11 +233,11 @@ input[type="range"]::-moz-range-track {
 .input span {
   color: red;
 }
-.input input[type="text"] {
-  height: 2.5rem;
+.input textarea {
   padding: 1rem;
-  display: flex;
-  flex: 1;
+  /* display: flex;
+  flex: 1; */
+  resize: none;
 }
 /* .enviar {
   text-align: right;
@@ -325,6 +327,10 @@ input[type="range"]::-moz-range-track {
     flex: 0 0 40px;
     font-size: 30px;
   }
+  .input textarea {
+    height: 300px;
+    width: 600px;
+  }
   .input input[type="submit"] {
     font-size: 30px;
     padding: 1rem 3rem;
@@ -401,6 +407,10 @@ input[type="range"]::-moz-range-track {
   .input label {
     flex: 0 0 40px;
     font-size: 17px;
+  }
+  .input textarea {
+    height: 200px;
+    width: 400px;
   }
   .input input[type="submit"] {
     font-size: 15px;
@@ -505,5 +515,9 @@ input[type="range"]::-moz-range-track {
 @media (max-width: 480px) {
   h1 {
     font-size: 1em;
+  }
+  .input textarea {
+    height: 150px;
+    width: 200px;
   }
 }
