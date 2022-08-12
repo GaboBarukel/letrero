@@ -91,6 +91,7 @@ function playMeasureCount() {
   }
   if (count === 0) {
     UI.pulseDisplay.firstChild.classList.add("pulse-first");
+    childrenCount = 1;
     setTimeout(() => {
       UI.pulseDisplay.firstChild.classList.remove("pulse-first");
     }, flashSpeed);
@@ -105,6 +106,7 @@ function playMeasureCount() {
     activeIndex++;
   }
   count++;
+  console.log(childrenCount);
 }
 
 function updateMetronome() {
@@ -113,11 +115,11 @@ function updateMetronome() {
   myTimer.timeInterval = 60000 / bpm;
 }
 
-const cleanPulseDisplay = () => {
+function cleanPulseDisplay() {
   while (UI.pulseDisplay.firstChild) {
     UI.pulseDisplay.removeChild(UI.pulseDisplay.firstChild);
   }
-};
+}
 
 //MANEJO DE LA LETRA
 const armarCancion = (e) => {
@@ -205,7 +207,6 @@ const controlTimer = () => {
     myTimer.stop();
     activeIndex = 0;
     count = 0;
-    childrenCount = 1;
     isRunning = false;
     UI.metronomeControllerBTN.textContent = "START";
   }
