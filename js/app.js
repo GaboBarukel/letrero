@@ -205,6 +205,7 @@ const controlTimer = () => {
     myTimer.stop();
     activeIndex = 0;
     count = 0;
+    childrenCount = 1;
     isRunning = false;
     UI.metronomeControllerBTN.textContent = "START";
   }
