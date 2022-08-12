@@ -7,6 +7,8 @@ let beatsPerMeasure = 4;
 let count = 0;
 let flashSpeed = 150;
 
+let activeIndex = 0;
+
 UI.decreaseTempoBTN.addEventListener("click", () => {
   if (bpm <= 20) {
     return;
@@ -69,6 +71,9 @@ function playMeasureCount() {
     setTimeout(() => {
       UI.pulseDisplay.classList.remove("pulse-other");
     }, flashSpeed);
+  }
+  if (count === beatsPerMeasure - 1) {
+    activeIndex++;
   }
   count++;
 }
@@ -134,8 +139,6 @@ const lyricIteration = (activeIndex, lyricUL) => {
   }
 };
 
-let activeIndex = 0;
-
 //TIMER
 let isRunning = false;
 
@@ -143,7 +146,6 @@ const myTimer = new Timer(
   () => {
     let lyricUL = UI.headingResultado.children;
     lyricIteration(activeIndex, lyricUL);
-    activeIndex++;
     playMeasureCount();
   },
   60000 / bpm,
