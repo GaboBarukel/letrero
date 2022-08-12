@@ -6,7 +6,7 @@ let bpm = 140;
 let beatsPerMeasure = 4;
 let count = 0;
 let flashSpeed = 150;
-
+let countDown = true;
 let activeIndex = 0;
 
 UI.decreaseTempoBTN.addEventListener("click", () => {
@@ -30,6 +30,16 @@ UI.tempoSlider.addEventListener("input", () => {
   bpm = UI.tempoSlider.value;
   updateMetronome();
   pulseSpeedUpdate();
+});
+
+UI.countDownControllerBTN.addEventListener("click", () => {
+  if (countDown) {
+    countDown = false;
+    UI.countDownControllerBTN.textContent = "No CountDown";
+  } else {
+    countDown = true;
+    UI.countDownControllerBTN.textContent = "CountDown";
+  }
 });
 
 UI.subtractBeats.addEventListener("click", () => {
@@ -114,6 +124,14 @@ const limpiarLetra = () => {
 };
 
 const llenarLetra = (lineas) => {
+  if (countDown) {
+    let liElement = document.createElement("li");
+    liElement.classList.add("estilo-li");
+
+    let br = document.createElement("br");
+    liElement.appendChild(br);
+    UI.headingResultado.appendChild(liElement);
+  }
   lineas.forEach((linea) => {
     let liElement = document.createElement("li");
 
