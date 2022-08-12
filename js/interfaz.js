@@ -10,4 +10,4 @@ export const formularioText = document.querySelector("#text-form"),
   subtractBeats = document.querySelector(".subtract-beats"),
   addBeats = document.querySelector(".add-beats"),
   measureCount = document.querySelector(".measure-count"),
-  pulseDisplay = document.querySelector("#pulse-display");
+  pulseDisplay = document.querySelector("#pulses-display");

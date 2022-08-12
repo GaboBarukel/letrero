@@ -148,8 +148,13 @@ input[type="range"]::-moz-range-track {
   color: white;
 }
 
+.pulse-container {
+  display: flex;
+}
+
 .pulse {
   background-color: black;
+  border-radius: 50%;
   margin: 0 auto;
 }
 

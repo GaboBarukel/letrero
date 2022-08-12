@@ -46,14 +46,18 @@ UI.subtractBeats.addEventListener("click", () => {
   if (beatsPerMeasure <= 2) {
     return;
   }
+  cleanPulseDisplay();
   beatsPerMeasure--;
+  addPulseDisplay();
   UI.measureCount.innerText = beatsPerMeasure;
 });
 UI.addBeats.addEventListener("click", () => {
   if (beatsPerMeasure >= 12) {
     return;
   }
+  cleanPulseDisplay();
   beatsPerMeasure++;
+  addPulseDisplay();
   UI.measureCount.innerText = beatsPerMeasure;
 });
 
@@ -67,19 +71,34 @@ function pulseSpeedUpdate() {
   }
 }
 
+function addPulseDisplay() {
+  for (let i = 0; i < beatsPerMeasure; i++) {
+    let pulseElement = document.createElement("div");
+    pulseElement.classList.add("pulse");
+    UI.pulseDisplay.appendChild(pulseElement);
+  }
+}
+
+addPulseDisplay();
+
+const pulseDisplayChildren = UI.pulseDisplay.children;
+let childrenCount = 1;
+
 function playMeasureCount() {
   if (count === beatsPerMeasure) {
     count = 0;
+    childrenCount = 1;
   }
   if (count === 0) {
-    UI.pulseDisplay.classList.add("pulse-first");
+    UI.pulseDisplay.firstChild.classList.add("pulse-first");
     setTimeout(() => {
-      UI.pulseDisplay.classList.remove("pulse-first");
+      UI.pulseDisplay.firstChild.classList.remove("pulse-first");
     }, flashSpeed);
   } else {
-    UI.pulseDisplay.classList.add("pulse-other");
+    pulseDisplayChildren[childrenCount].classList.add("pulse-other");
     setTimeout(() => {
-      UI.pulseDisplay.classList.remove("pulse-other");
+      pulseDisplayChildren[childrenCount].classList.remove("pulse-other");
+      childrenCount++;
     }, flashSpeed);
   }
   if (count === beatsPerMeasure - 1) {
@@ -93,6 +112,12 @@ function updateMetronome() {
   UI.tempoSlider.value = bpm;
   myTimer.timeInterval = 60000 / bpm;
 }
+
+const cleanPulseDisplay = () => {
+  while (UI.pulseDisplay.firstChild) {
+    UI.pulseDisplay.removeChild(UI.pulseDisplay.firstChild);
+  }
+};
 
 //MANEJO DE LA LETRA
 const armarCancion = (e) => {
