@@ -49,6 +49,8 @@ UI.subtractBeats.addEventListener("click", () => {
   cleanPulseDisplay();
   beatsPerMeasure--;
   addPulseDisplay();
+  count = 0;
+  childrenCount = 1;
   UI.measureCount.innerText = beatsPerMeasure;
 });
 UI.addBeats.addEventListener("click", () => {
@@ -58,6 +60,8 @@ UI.addBeats.addEventListener("click", () => {
   cleanPulseDisplay();
   beatsPerMeasure++;
   addPulseDisplay();
+  count = 0;
+  childrenCount = 1;
   UI.measureCount.innerText = beatsPerMeasure;
 });
 
@@ -106,7 +110,6 @@ function playMeasureCount() {
     activeIndex++;
   }
   count++;
-  console.log(childrenCount);
 }
 
 function updateMetronome() {
