@@ -8,6 +8,7 @@ let count = 0;
 let flashSpeed = 150;
 let countDown = true;
 let activeIndex = 0;
+// let playState = false;
 
 UI.decreaseTempoBTN.addEventListener("click", () => {
   if (bpm <= 20) {
@@ -135,10 +136,11 @@ const armarCancion = (e) => {
   if (letra === "") {
     UI.divMensajes.textContent = "Error.. no hay letra..";
     UI.divMensajes.classList.add("error");
-
+    UI.textDisplay.classList.remove("edit");
     setTimeout(() => {
       UI.divMensajes.textContent = "";
       UI.divMensajes.classList.remove("error");
+      UI.textDisplay.classList.add("edit");
     }, 3000);
 
     return;
@@ -154,6 +156,9 @@ const limpiarLetra = () => {
 };
 
 const llenarLetra = (lineas) => {
+  UI.textDisplay.classList.remove("edit");
+  UI.textDisplay.classList.add("play");
+  UI.formContainer.classList.add("play");
   if (countDown) {
     let liElement = document.createElement("li");
     liElement.classList.add("estilo-li");
@@ -175,6 +180,12 @@ const llenarLetra = (lineas) => {
     }
     UI.headingResultado.appendChild(liElement);
   });
+};
+
+const editModeHandler = () => {
+  UI.textDisplay.classList.remove("play");
+  UI.textDisplay.classList.add("edit");
+  UI.formContainer.classList.remove("play");
 };
 
 //ITERACIÓN DE LA LETRA
@@ -216,5 +227,7 @@ const controlTimer = () => {
 };
 
 UI.formularioText.addEventListener("submit", armarCancion);
+
+UI.editBTN.addEventListener("click", editModeHandler);
 
 UI.metronomeControllerBTN.addEventListener("click", controlTimer);

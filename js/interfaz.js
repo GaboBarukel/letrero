@@ -1,5 +1,8 @@
 export const formularioText = document.querySelector("#text-form"),
+  formContainer = document.querySelector(".input"),
+  editBTN = document.querySelector(".editBTN"),
   divMensajes = document.querySelector("#mensajes"),
+  textDisplay = document.querySelector(".lyric-result"),
   headingResultado = document.querySelector(".lyric-result ul"),
   tempoDisplay = document.querySelector(".tempo"),
   decreaseTempoBTN = document.querySelector(".decrease-tempo"),

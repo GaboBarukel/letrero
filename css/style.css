@@ -111,6 +111,7 @@ input[type="range"]::-moz-range-track {
   color: white;
   align-self: center;
   border: none;
+  border-radius: 3px;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -123,6 +124,7 @@ input[type="range"]::-moz-range-track {
   color: white;
   align-self: center;
   border: none;
+  border-radius: 3px;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -179,15 +181,47 @@ input[type="range"]::-moz-range-track {
   align-items: center;
 }
 
-.lyric-result {
+.lyric-result.edit {
+  display: none;
+}
+
+.lyric-result.play {
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.editBTN {
+  background-color: #6f86d6;
+  padding: 0.5rem 2rem;
+  color: white;
+  align-self: center;
+  border: none;
+  border-radius: 3px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.editBTN:hover {
+  cursor: pointer;
+  background-color: #384e9d;
+}
+.lyric-list-container {
+  padding: 1rem;
+  margin-bottom: 10px;
+  text-overflow: clip;
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding-left: 1rem;
+  border-radius: 8px;
+  background: #95a3d6;
+}
+
 .lyric-list {
-  width: 40%;
+  width: 70%;
   list-style: none;
   padding: 0;
   text-align: left;
@@ -201,6 +235,10 @@ input[type="range"]::-moz-range-track {
   background-color: red;
 }
 
+.input.play {
+  display: none;
+}
+
 .input {
   width: 100%;
   margin-bottom: 1rem;
@@ -212,6 +250,7 @@ input[type="range"]::-moz-range-track {
 
 .input textarea {
   padding: 1rem;
+  margin-bottom: 10px;
   resize: none;
   border: none;
   border-radius: 8px;
@@ -242,6 +281,7 @@ textarea::-webkit-scrollbar-thumb {
   color: white;
   align-self: center;
   border: none;
+  border-radius: 3px;
   transition: background-color 0.3s ease-in-out;
 }
 .input input[type="submit"]:hover {
@@ -333,6 +373,14 @@ textarea::-webkit-scrollbar-thumb {
     font-size: 30px;
     padding: 1rem 3rem;
   }
+  .editBTN {
+    font-size: 30px;
+    padding: 1rem 3rem;
+  }
+  .lyric-list-container {
+    height: 300px;
+    width: 600px;
+  }
   .lyric-list li {
     font-size: 2.5em;
   }
@@ -418,6 +466,14 @@ textarea::-webkit-scrollbar-thumb {
   .input input[type="submit"] {
     font-size: 15px;
     padding: 0.5rem 2rem;
+  }
+  .editBTN {
+    font-size: 15px;
+    padding: 0.5rem 2rem;
+  }
+  .lyric-list-container {
+    height: 200px;
+    width: 400px;
   }
   .lyric-list li {
     font-size: 1.5em;
@@ -519,6 +575,14 @@ textarea::-webkit-scrollbar-thumb {
     font-size: 12px;
     padding: 0.3rem 1.5rem;
   }
+  .editBTN {
+    font-size: 12px;
+    padding: 0.3rem 1.5rem;
+  }
+  .lyric-list-container {
+    height: 180px;
+    width: 450px;
+  }
   .error {
     font-size: 12px;
     padding: 0.5rem;
@@ -537,5 +601,10 @@ textarea::-webkit-scrollbar-thumb {
   .input textarea::placeholder {
     flex: 0 0 40px;
     font-size: 12px;
+  }
+  .lyric-list-container {
+    font-size: 12px;
+    height: 150px;
+    width: 250px;
   }
 }
