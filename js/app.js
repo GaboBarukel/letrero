@@ -2,7 +2,7 @@ import * as UI from "./interfaz.js";
 import Timer from "./timer.js";
 
 //METRONOME CONTROL
-let bpm = 140;
+let bpm = 90;
 let beatsPerMeasure = 4;
 let count = 0;
 let flashSpeed = 150;
