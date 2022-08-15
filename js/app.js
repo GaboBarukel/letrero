@@ -126,36 +126,34 @@ function cleanPulseDisplay() {
 }
 
 //MANEJO DE LA LETRA
-const armarCancion = (e) => {
+const setLyric = (e) => {
   e.preventDefault();
 
   const letra = document.querySelector("#lyric-area").value;
   // Arreglo de letra
   const lyrArr = document.querySelector("#lyric-area").value.split("\n");
-  limpiarLetra();
+  cleanLyric();
   if (letra === "") {
-    UI.divMensajes.textContent = "Error.. no hay letra..";
-    UI.divMensajes.classList.add("error");
-    UI.textDisplay.classList.remove("edit");
+    UI.errorMessage.textContent = "Error.. no hay letra..";
+    UI.errorMessage.classList.add("error");
     setTimeout(() => {
-      UI.divMensajes.textContent = "";
-      UI.divMensajes.classList.remove("error");
-      UI.textDisplay.classList.add("edit");
+      UI.errorMessage.textContent = "";
+      UI.errorMessage.classList.remove("error");
     }, 3000);
 
     return;
   }
 
-  llenarLetra(lyrArr);
+  makeLyricUL(lyrArr);
 };
 
-const limpiarLetra = () => {
-  while (UI.headingResultado.firstChild) {
-    UI.headingResultado.removeChild(UI.headingResultado.firstChild);
+const cleanLyric = () => {
+  while (UI.lyricResult.firstChild) {
+    UI.lyricResult.removeChild(UI.lyricResult.firstChild);
   }
 };
 
-const llenarLetra = (lineas) => {
+const makeLyricUL = (lineas) => {
   UI.textDisplay.classList.remove("edit");
   UI.textDisplay.classList.add("play");
   UI.formContainer.classList.add("play");
@@ -165,7 +163,7 @@ const llenarLetra = (lineas) => {
 
     let br = document.createElement("br");
     liElement.appendChild(br);
-    UI.headingResultado.appendChild(liElement);
+    UI.lyricResult.appendChild(liElement);
   }
   lineas.forEach((linea) => {
     let liElement = document.createElement("li");
@@ -178,7 +176,7 @@ const llenarLetra = (lineas) => {
     } else {
       liElement.innerText = `${linea}`;
     }
-    UI.headingResultado.appendChild(liElement);
+    UI.lyricResult.appendChild(liElement);
   });
 };
 
@@ -203,7 +201,7 @@ let isRunning = false;
 
 const myTimer = new Timer(
   () => {
-    let lyricUL = UI.headingResultado.children;
+    let lyricUL = UI.lyricResult.children;
     lyricIteration(activeIndex, lyricUL);
     playMeasureCount();
   },
@@ -226,7 +224,7 @@ const controlTimer = () => {
   }
 };
 
-UI.formularioText.addEventListener("submit", armarCancion);
+UI.textForm.addEventListener("submit", setLyric);
 
 UI.editBTN.addEventListener("click", editModeHandler);
 

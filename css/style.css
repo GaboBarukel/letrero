@@ -206,6 +206,7 @@ input[type="range"]::-moz-range-track {
   cursor: pointer;
   background-color: #384e9d;
 }
+
 .lyric-list-container {
   padding: 1rem;
   margin-bottom: 10px;
@@ -241,7 +242,6 @@ input[type="range"]::-moz-range-track {
 
 .input {
   width: 100%;
-  margin-bottom: 1rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -261,7 +261,6 @@ input[type="range"]::-moz-range-track {
 .input textarea::placeholder {
   text-align: left;
   font-weight: 500;
-  text-transform: uppercase;
   color: black;
 }
 
@@ -269,9 +268,11 @@ textarea::-webkit-scrollbar {
   width: 7px;
 }
 textarea::-webkit-scrollbar-track {
+  border-radius: 0 8px 8px 0;
   background-color: #5c6ca3;
 }
 textarea::-webkit-scrollbar-thumb {
+  border-radius: 0 8px 8px 0;
   background-color: #384e9d;
 }
 
@@ -382,7 +383,7 @@ textarea::-webkit-scrollbar-thumb {
     width: 600px;
   }
   .lyric-list li {
-    font-size: 2.5em;
+    font-size: 2em;
   }
   .error {
     font-size: 30px;
