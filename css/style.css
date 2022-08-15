@@ -557,7 +557,6 @@ textarea::-webkit-scrollbar-thumb {
     height: 280px;
   }
   .input {
-    margin-bottom: 0.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
