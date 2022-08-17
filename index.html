@@ -49,22 +49,21 @@
       </div>
       <div class="form-and-text-container">
         <div id="text-container" class="text-container">
+          <form action="#" id="text-form">
+            <div class="input">
+              <div class="controls">
+                <button class="defaultBtn editBtn">Edit</button>
+                <button class="defaultBtn playBtn">Play</button>
+                <button class="defaultBtn backBtn">Back to Top</button>
+              </div>
+              <textarea name="lyric-area" id="lyric-area" placeholder="Letra.." ></textarea>
+            </div>
+          </form>
           <div class="lyric-result edit">
             <div class="lyric-list-container">
               <ul class="lyric-list"></ul>
             </div>
-            <button class="editBTN">Edit</button>
           </div>
-          <form action="#" id="text-form">
-            <div class="input">
-              <textarea
-                name="lyric-area"
-                id="lyric-area"
-                placeholder="Letra.."
-              ></textarea>
-              <input type="submit" value="Reproducción" />
-            </div>
-          </form>
         </div>
         <div id="error_message"></div>
       </div>

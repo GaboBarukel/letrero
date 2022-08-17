@@ -128,9 +128,12 @@ function cleanPulseDisplay() {
 //LYRIC HANDLING
 const setLyric = (e) => {
   e.preventDefault();
+  let h = getComputedStyle(UI.lyricArea).height
+  UI.lyricResult.style.height = h;
+  UI.lyricArea.style.display = 'none'
 
-  const letra = document.querySelector("#lyric-area").value;
-  const lyrArr = document.querySelector("#lyric-area").value.split("\n");
+  const letra = UI.lyricArea.value;
+  const lyrArr = UI.lyricArea.value.split("\n");
   cleanLyric();
   if (letra === "") {
     UI.errorMessage.textContent = "Error.. no hay letra..";
@@ -183,7 +186,13 @@ const editModeHandler = () => {
   UI.textDisplay.classList.remove("play");
   UI.textDisplay.classList.add("edit");
   UI.formContainer.classList.remove("play");
+  UI.lyricArea.scrollTop = 0;
+  UI.lyricArea.style.display = 'block'
 };
+
+const backToTop = () => {
+  UI.lyricArea.scrollTop = 0;
+}
 
 const lyricIteration = (activeIndex, lyricUL) => {
   if (activeIndex < lyricUL.length) {
@@ -229,8 +238,10 @@ const controlTimer = () => {
 };
 
 //MAIN EVENT LISTENERS
-UI.textForm.addEventListener("submit", setLyric);
-
 UI.editBTN.addEventListener("click", editModeHandler);
+
+UI.playBtn.addEventListener("click", setLyric);
+
+UI.backBtn.addEventListener("click", backToTop);
 
 UI.metronomeControllerBTN.addEventListener("click", controlTimer);

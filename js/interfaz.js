@@ -1,6 +1,8 @@
 export const textForm = document.querySelector("#text-form"),
   formContainer = document.querySelector(".input"),
-  editBTN = document.querySelector(".editBTN"),
+  editBTN = document.querySelector(".editBtn"),
+  playBtn = document.querySelector(".playBtn"),
+  backBtn = document.querySelector(".backBtn"),
   errorMessage = document.querySelector("#error_message"),
   textDisplay = document.querySelector(".lyric-result"),
   lyricResult = document.querySelector(".lyric-result ul"),
@@ -13,4 +15,5 @@ export const textForm = document.querySelector("#text-form"),
   subtractBeats = document.querySelector(".subtract-beats"),
   addBeats = document.querySelector(".add-beats"),
   measureCount = document.querySelector(".measure-count"),
-  pulseDisplay = document.querySelector("#pulses-display");
+  pulseDisplay = document.querySelector("#pulses-display"),
+  lyricArea = document.querySelector('#lyric-area');
