@@ -35,15 +35,15 @@ UI.tempoSlider.addEventListener("input", () => {
   pulseSpeedUpdate();
 });
 
-UI.countDownControllerBTN.addEventListener("click", () => {
-  if (countDown) {
-    countDown = false;
-    UI.countDownControllerBTN.textContent = "No CountDown";
-  } else {
-    countDown = true;
-    UI.countDownControllerBTN.textContent = "CountDown";
-  }
-});
+// UI.countDownControllerBTN.addEventListener("click", () => {
+//   if (countDown) {
+//     countDown = false;
+//     UI.countDownControllerBTN.textContent = "No CountDown";
+//   } else {
+//     countDown = true;
+//     UI.countDownControllerBTN.textContent = "CountDown";
+//   }
+// });
 
 //Amount of beats per measure controller(functional)
 UI.subtractBeats.addEventListener("click", () => {
