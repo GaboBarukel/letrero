@@ -10,6 +10,7 @@ let activeIndex = 0;
 // let countDown = true;
 // let playState = false;
 
+// Increase and Decrease metronome speed btns
 UI.decreaseTempoBTN.addEventListener("click", () => {
   if (bpm <= 20) {
     return;
@@ -27,22 +28,24 @@ UI.increaseTempoBTN.addEventListener("click", () => {
   pulseSpeedUpdate();
 });
 
+//metronome managing slider
 UI.tempoSlider.addEventListener("input", () => {
   bpm = UI.tempoSlider.value;
   updateMetronome();
   pulseSpeedUpdate();
 });
 
-// UI.countDownControllerBTN.addEventListener("click", () => {
-//   if (countDown) {
-//     countDown = false;
-//     UI.countDownControllerBTN.textContent = "No CountDown";
-//   } else {
-//     countDown = true;
-//     UI.countDownControllerBTN.textContent = "CountDown";
-//   }
-// });
+UI.countDownControllerBTN.addEventListener("click", () => {
+  if (countDown) {
+    countDown = false;
+    UI.countDownControllerBTN.textContent = "No CountDown";
+  } else {
+    countDown = true;
+    UI.countDownControllerBTN.textContent = "CountDown";
+  }
+});
 
+//Amount of beats per measure controller(functional)
 UI.subtractBeats.addEventListener("click", () => {
   if (beatsPerMeasure <= 2) {
     return;
@@ -76,6 +79,7 @@ function pulseSpeedUpdate() {
   }
 }
 
+//Amount of beats per measure controller(visual display)
 function addPulseDisplay() {
   for (let i = 0; i < beatsPerMeasure; i++) {
     let pulseElement = document.createElement("div");
@@ -89,6 +93,7 @@ addPulseDisplay();
 const pulseDisplayChildren = UI.pulseDisplay.children;
 let childrenCount = 1;
 
+//beat of the measure count function(different color for the first of every measure)
 function playMeasureCount() {
   if (count === beatsPerMeasure) {
     count = 0;
