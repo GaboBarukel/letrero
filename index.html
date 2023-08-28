@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Letrero</title>
+    <title>LYRIKER</title>
     <link
       rel="stylesheet"
       href="https://necolas.github.io/normalize.css/8.0.0/normalize.css"
@@ -13,47 +13,51 @@
       href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/styleNew.css" />
   </head>
   <body>
     <header>
-      <h1>Letrero</h1>
-    </header>
-    <main id="main-container" class="main-container">
+      <h1>LYRIKER</h1>
       <div class="metronome-container">
         <div class="metronome">
-          <div class="bpm-display">
-            <span class="tempo">90</span>
-            <span class="bpm">BPM</span>
+          <div class="bpm-range">
+            <div class="bpm-display">
+              <span class="tempo">90</span>
+              <span class="bpm">BPM</span>
+            </div>
+            <div class="tempo-settings">
+              <div class="adjust-tempo-btn decrease-tempo">-</div>
+              <input
+                type="range"
+                min="20"
+                max="180"
+                step="1"
+                class="tempo-slider"
+              />
+              <div class="adjust-tempo-btn increase-tempo">+</div>
+            </div>
           </div>
-          <div class="tempo-settings">
-            <div class="adjust-tempo-btn decrease-tempo">-</div>
-            <input
-              type="range"
-              min="20"
-              max="180"
-              step="1"
-              class="tempo-slider"
-            />
-            <div class="adjust-tempo-btn increase-tempo">+</div>
+          <!-- <div class="countdown" id="countdown-btn">CountDown</div> -->
+          <div class="measure-pulse">
+            <div class="measures">
+              <div class="subtract-beats stepper">-</div>
+              <div class="measure-count">4</div>
+              <div class="add-beats stepper">+</div>
+            </div>
+            <div class="pulse-container" id="pulses-display"></div>
           </div>
-          <div class="start-stop" id="start-stop-btn">START</div>
-          <div class="countdown" id="countdown-btn">CountDown</div>
-          <div class="measures">
-            <div class="subtract-beats stepper">-</div>
-            <div class="measure-count">4</div>
-            <div class="add-beats stepper">+</div>
-          </div>
-          <div class="pulse-container" id="pulses-display"></div>
         </div>
+        <div class="start-stop" id="start-stop-btn">START</div>
       </div>
+    </header>
+    <main id="main-container" class="main-container">
       <div class="form-and-text-container">
         <div id="text-container" class="text-container">
-          <div class="lyric-result edit">
-            <div class="lyric-list-container">
-              <ul class="lyric-list"></ul>
+          <div class="lyric-result edit" data-scroll-container>
+            <div class="lyric-list-container" data-scroll-section>
+              <ul class="lyric-list" data-scroll></ul>
             </div>
-            <button class="editBTN">Edit</button>
+            <button class="editBTN">Edición</button>
           </div>
           <form action="#" id="text-form">
             <div class="input">
@@ -69,7 +73,6 @@
         <div id="error_message"></div>
       </div>
     </main>
-
     <script src="js/app.js" type="module"></script>
   </body>
 </html>

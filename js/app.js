@@ -1,13 +1,13 @@
 import * as UI from "./interfaz.js";
 import Timer from "./timer.js";
-
+// import LocomotiveScroll from "locomotive-scroll";
 //METRONOME CONTROL
 let bpm = 90;
 let beatsPerMeasure = 4;
 let count = 0;
 let flashSpeed = 150;
-let countDown = true;
 let activeIndex = 0;
+// let countDown = true;
 // let playState = false;
 
 UI.decreaseTempoBTN.addEventListener("click", () => {
@@ -33,15 +33,15 @@ UI.tempoSlider.addEventListener("input", () => {
   pulseSpeedUpdate();
 });
 
-UI.countDownControllerBTN.addEventListener("click", () => {
-  if (countDown) {
-    countDown = false;
-    UI.countDownControllerBTN.textContent = "No CountDown";
-  } else {
-    countDown = true;
-    UI.countDownControllerBTN.textContent = "CountDown";
-  }
-});
+// UI.countDownControllerBTN.addEventListener("click", () => {
+//   if (countDown) {
+//     countDown = false;
+//     UI.countDownControllerBTN.textContent = "No CountDown";
+//   } else {
+//     countDown = true;
+//     UI.countDownControllerBTN.textContent = "CountDown";
+//   }
+// });
 
 UI.subtractBeats.addEventListener("click", () => {
   if (beatsPerMeasure <= 2) {
@@ -153,17 +153,18 @@ const cleanLyric = () => {
 };
 
 const makeLyricUL = (lineas) => {
+  //debugger;
   UI.textDisplay.classList.remove("edit");
   UI.textDisplay.classList.add("play");
   UI.formContainer.classList.add("play");
-  if (countDown) {
-    let liElement = document.createElement("li");
-    liElement.classList.add("estilo-li");
+  // if (countDown) {
+  //   let liElement = document.createElement("li");
+  //   liElement.classList.add("estilo-li");
 
-    let br = document.createElement("br");
-    liElement.appendChild(br);
-    UI.lyricResult.appendChild(liElement);
-  }
+  //   let br = document.createElement("br");
+  //   liElement.appendChild(br);
+  //   UI.lyricResult.appendChild(liElement);
+  // }
   lineas.forEach((linea) => {
     let liElement = document.createElement("li");
 
@@ -177,6 +178,7 @@ const makeLyricUL = (lineas) => {
     }
     UI.lyricResult.appendChild(liElement);
   });
+  // console.dir(UI.lyricResult.lastChild.scrollHeight);
 };
 
 const editModeHandler = () => {
@@ -219,6 +221,7 @@ const controlTimer = () => {
     myTimer.start();
     isRunning = true;
     UI.metronomeControllerBTN.textContent = "STOP";
+    // debugger;
   } else {
     myTimer.stop();
     activeIndex = 0;
@@ -228,9 +231,25 @@ const controlTimer = () => {
   }
 };
 
+//SCROLLING
+// const scroll = new LocomotiveScroll();
+
 //MAIN EVENT LISTENERS
 UI.textForm.addEventListener("submit", setLyric);
 
 UI.editBTN.addEventListener("click", editModeHandler);
 
 UI.metronomeControllerBTN.addEventListener("click", controlTimer);
+
+//CLICK ON UL TO TEST SCROLLING EVENT
+// UI.lyricResult.addEventListener("click", (e) => {
+//   if (e.target.classList.contains("active")) {
+//     e.target.classList.remove("active");
+//   } else {
+//     e.target.classList.add("active");
+//     scroll.smoothScroll("." + e.target.classList[1], (60000 / bpm) * 4);
+//   }
+//   console.log(e.target);
+//   console.log(e.target.getBoundingClientRect().height);
+//   console.log(e.target.getBoundingClientRect().top);
+// });
