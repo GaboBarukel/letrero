@@ -246,6 +246,8 @@ UI.editBTN.addEventListener("click", editModeHandler);
 
 UI.metronomeControllerBTN.addEventListener("click", controlTimer);
 
+let myScroller = document.querySelector(".lyric-result");
+
 //CLICK ON UL TO TEST SCROLLING EVENT
 // UI.lyricResult.addEventListener("click", (e) => {
 //   if (e.target.classList.contains("active")) {
