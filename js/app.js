@@ -7,6 +7,8 @@ let beatsPerMeasure = 4;
 let count = 0;
 let flashSpeed = 150;
 let activeIndex = 0;
+let heightCount = -24;
+let root = document.documentElement;
 // let countDown = true;
 // let playState = false;
 
@@ -98,8 +100,10 @@ function playMeasureCount() {
   if (count === beatsPerMeasure) {
     count = 0;
     childrenCount = 1;
+    heightCount -= 24;
   }
   if (count === 0) {
+    root.style.setProperty("--activeHeight", heightCount + "px");
     UI.pulseDisplay.firstChild.classList.add("pulse-first");
     childrenCount = 1;
     setTimeout(() => {
@@ -115,6 +119,7 @@ function playMeasureCount() {
   if (count === beatsPerMeasure - 1) {
     activeIndex++;
   }
+  console.log(heightCount);
   count++;
 }
 
@@ -199,13 +204,13 @@ const lyricIteration = (activeIndex, lyricUL) => {
       lyricUL[activeIndex - 1].classList.remove("active");
     }
   }
-  if (activeIndex < lyricUL.length) {
-    lyricUL[activeIndex].scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "start",
-    });
-  }
+  // if (activeIndex < lyricUL.length) {
+  //   lyricUL[activeIndex].scrollIntoView({
+  //     behavior: "smooth",
+  //     block: "center",
+  //     inline: "start",
+  //   });
+  // }
 };
 
 //TIMER

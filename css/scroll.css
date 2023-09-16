@@ -1,0 +1,19 @@
+:root {
+  --translateDuration: 2670ms;
+  --curveStyle: ease-in-out;
+  --activeHeight: 0;
+}
+
+.lyric-list .active {
+  transition: transform var(--translateDuration) var(--curveStyle);
+}
+
+.lyric-list li {
+  animation: smoothScroll var(--translateDuration) var(--curveStyle) forwards;
+}
+
+@keyframes smoothScroll {
+  100% {
+    transform: translateY(var(--activeHeight));
+  }
+}
