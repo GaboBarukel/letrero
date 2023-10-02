@@ -1,7 +1,6 @@
 import * as UI from "./interfaz.js";
 import Timer from "./timer.js";
-// import LocomotiveScroll from "locomotive-scroll";
-//METRONOME CONTROL
+
 let bpm = 90;
 let beatsPerMeasure = 4;
 let count = 0;
@@ -234,6 +233,9 @@ const controlTimer = () => {
     // debugger;
   } else {
     myTimer.stop();
+    root.style.setProperty("--activeHeight", 0);
+    UI.lyricResult.children[activeIndex].classList.remove("active");
+    heightCount = -24;
     activeIndex = 0;
     count = 0;
     isRunning = false;
