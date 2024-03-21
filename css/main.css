@@ -1,3 +1,11 @@
+:root{
+  --blue: #1e3c72;
+  --light-blue: #2a5298;
+  --purple:#6f86d6 ;
+  --light-purple: #95a3d6;
+  --dark-purple: #384e9d;
+  --light-red: #f97979;
+}
 html {
   box-sizing: border-box;
 }
@@ -10,9 +18,9 @@ body,
 .smooth-container {
   background-image: linear-gradient(
     to top,
-    #1e3c72 0%,
-    #1e3c72 1%,
-    #2a5298 100%
+    var(--blue) 0%,
+    var(--blue) 1%,
+    var(--light-blue) 100%
   );
   font-family: "Montserrat", sans-serif;
   user-select: none;
@@ -31,20 +39,16 @@ h1 {
   gap: 10px;
   margin: 10px 0;
   align-items: center;
-  height: 70px;
 }
-
-/* METRONOME CONTROLS */
 .metronome {
+  --metronome-border: 1px solid var(--light-purple);
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
-  height: 100%;
   width: 100%;
+  border-top: var(--metronome-border);
+  border-bottom: var(--metronome-border);
   padding: 10px 0;
 }
-
-/* bpm control-display */
 .bpm-range {
   width: 30%;
   display: flex;
@@ -108,8 +112,6 @@ h1 {
   background-color: black;
   cursor: pointer;
 }
-
-/* measure control-display */
 .measure-pulse {
   width: 30%;
   display: flex;
@@ -149,10 +151,10 @@ h1 {
   background-color: red;
 }
 .pulse-other {
-  background-color: #6f86d6;
+  background-color: var(--purple);
 }
 .start-stop {
-  background-color: #6f86d6;
+  background-color: var(--purple);
   color: white;
   align-self: center;
   border: none;
@@ -163,7 +165,7 @@ h1 {
 }
 .start-stop:hover {
   cursor: pointer;
-  background-color: #384e9d;
+  background-color: var(--dark-purple);
 }
 .main-container {
   margin-top: 5px;
@@ -213,7 +215,7 @@ form {
   resize: none;
   border: none;
   color: black;
-  background: #95a3d6;
+  background: var(--light-purple);
 }
 .input textarea::placeholder {
   text-align: center;
@@ -253,7 +255,7 @@ textarea::-webkit-scrollbar-thumb {
 }
 .input [type="submit"],
 .editBTN {
-  background-color: #6f86d6;
+  background-color: var(--purple);
   color: white;
   align-self: center;
   border: none;
@@ -265,12 +267,12 @@ textarea::-webkit-scrollbar-thumb {
 .input input[type="submit"]:hover,
 .editBTN:hover {
   cursor: pointer;
-  background-color: #384e9d;
+  background-color: var(--dark-purple);
 }
 .error {
   padding: 1rem;
   border: 1px solid red;
-  background-color: rgb(249, 121, 121);
+  background-color: var(--light-red);
   color: white;
   text-align: center;
 }
