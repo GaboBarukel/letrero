@@ -1,5 +1,4 @@
 html {
-  min-height: 100%;
   box-sizing: border-box;
 }
 *,
@@ -16,14 +15,8 @@ body,
     #2a5298 100%
   );
   font-family: "Montserrat", sans-serif;
-  min-height: 100%;
   user-select: none;
   scroll-behavior: smooth;
-}
-
-/* HEADER */
-header {
-  height: 120px;
 }
 h1 {
   font-size: 2em;
@@ -81,15 +74,15 @@ h1 {
   background-color: black;
   color: white;
 }
-input[type="range"] {
+[type="range"] {
   appearance: none;
   background-color: transparent;
   width: 80%;
 }
-input[type="range"]:focus {
+[type="range"]:focus {
   outline: none;
 }
-input[type="range"]::-webkit-slider-thumb {
+[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
   background-color: black;
   cursor: pointer;
@@ -97,7 +90,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 16px;
   margin-top: -8px;
 }
-input[type="range"]::-moz-range-thumb {
+[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   background-color: black;
   cursor: pointer;
@@ -158,8 +151,6 @@ input[type="range"]::-moz-range-track {
 .pulse-other {
   background-color: #6f86d6;
 }
-
-/* HEADER START/STOP BUTTON */
 .start-stop {
   background-color: #6f86d6;
   color: white;
@@ -174,14 +165,10 @@ input[type="range"]::-moz-range-track {
   cursor: pointer;
   background-color: #384e9d;
 }
-
-/* MAIN SECTION */
 .main-container {
   margin-top: 5px;
   height: 100%;
 }
-
-/* edit display */
 .form-and-text-container {
   font-weight: 600;
   font-size: large;
@@ -225,7 +212,6 @@ form {
   margin-bottom: 10px;
   resize: none;
   border: none;
-  /* border-radius: 8px; */
   color: black;
   background: #95a3d6;
 }
@@ -239,15 +225,11 @@ textarea::-webkit-scrollbar {
   width: 7px;
 }
 textarea::-webkit-scrollbar-track {
-  /* border-radius: 0 8px 8px 0; */
   background-color: #9eaad1;
 }
 textarea::-webkit-scrollbar-thumb {
-  /* border-radius: 0 8px 8px 0; */
   background-color: #6f7eb4;
 }
-
-/* play display */
 .lyric-result.edit {
   display: none;
 }
@@ -269,9 +251,7 @@ textarea::-webkit-scrollbar-thumb {
 .active {
   background-color: red;
 }
-
-/* toggle display buttons */
-.input input[type="submit"],
+.input [type="submit"],
 .editBTN {
   background-color: #6f86d6;
   color: white;
@@ -287,8 +267,6 @@ textarea::-webkit-scrollbar-thumb {
   cursor: pointer;
   background-color: #384e9d;
 }
-
-/* error message */
 .error {
   padding: 1rem;
   border: 1px solid red;
