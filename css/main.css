@@ -1,10 +1,16 @@
-:root{
-  --blue: #1e3c72;
-  --light-blue: #2a5298;
-  --purple:#6f86d6 ;
-  --light-purple: #95a3d6;
-  --dark-purple: #384e9d;
-  --light-red: #f97979;
+:root[data-theme="light"] {
+  --text: #161419;
+  --background: #f1f0f5;
+  --primary: #3c2d58;
+  --secondary: #a790d0;
+  --accent: #5f36a6;
+}
+:root[data-theme="dark"] {
+  --text: #e8e6eb;
+  --background: #0b0a0f;
+  --primary: #b6a7d2;
+  --secondary: #462f6f;
+  --accent: #8259c9;
 }
 html {
   box-sizing: border-box;
@@ -12,21 +18,17 @@ html {
 *,
 *:before,
 *:after {
+  font-family: "Montserrat", sans-serif;
   box-sizing: inherit;
 }
 body,
 .smooth-container {
-  background-image: linear-gradient(
-    to top,
-    var(--blue) 0%,
-    var(--blue) 1%,
-    var(--light-blue) 100%
-  );
-  font-family: "Montserrat", sans-serif;
+  background: var(--background);
   user-select: none;
   scroll-behavior: smooth;
 }
 h1 {
+  color: var(--primary);
   font-size: 2em;
   margin-bottom: 0;
   margin-top: 5px;
@@ -41,7 +43,7 @@ h1 {
   align-items: center;
 }
 .metronome {
-  --metronome-border: 1px solid var(--light-purple);
+  --metronome-border: 1px solid var(--primary);
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -56,6 +58,7 @@ h1 {
   justify-content: center;
 }
 .bpm-display {
+  color: var(--text);
   text-align: center;
   font-weight: bold;
 }
@@ -64,6 +67,9 @@ h1 {
   justify-content: space-around;
 }
 .tempo-settings .adjust-tempo-btn {
+  color: var(--text);
+  border: 1px solid var(--primary);
+  background: var(--background);
   font-weight: bold;
   border-radius: 50%;
   text-align: center;
@@ -71,11 +77,11 @@ h1 {
   width: 20px;
   height: 20px;
   font-size: 17px;
-  border: 1px solid black;
 }
 .tempo-settings .adjust-tempo-btn:hover {
-  background-color: black;
-  color: white;
+  color: var(--background);
+  border: 1px solid var(--text);
+  background: var(--accent);
 }
 [type="range"] {
   appearance: none;
@@ -87,7 +93,7 @@ h1 {
 }
 [type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
-  background-color: black;
+  background-color: var(--primary);
   cursor: pointer;
   width: 16px;
   height: 16px;
@@ -95,21 +101,21 @@ h1 {
 }
 [type="range"]::-moz-range-thumb {
   border-radius: 50%;
-  background-color: black;
+  background-color: var(--primary);
   cursor: pointer;
   border: none;
   width: 16px;
   height: 16px;
 }
 [type="range"]::-webkit-slider-runnable-track {
-  height: 1px;
+  height: 2px;
   width: 100%;
-  background-color: black;
+  background-color: var(--primary);
   cursor: pointer;
 }
 [type="range"]::-moz-range-track {
   width: 100%;
-  background-color: black;
+  background-color: var(--primary);
   cursor: pointer;
 }
 .measure-pulse {
@@ -124,48 +130,53 @@ h1 {
   justify-content: center;
 }
 .measure-count {
+  color: var(--text);
   font-size: 17px;
 }
-.measures .stepper {
+.stepper {
+  color: var(--text);
+  border: 1px solid var(--primary);
+  background: var(--background);
   width: 20px;
   height: 20px;
   font-size: 17px;
-  border: 1px solid black;
   margin: 0 10px;
   border-radius: 50%;
   text-align: center;
   font-weight: bold;
   cursor: pointer;
 }
+.stepper:hover{
+  color: var(--background);
+  border: 1px solid var(--text);
+  background: var(--accent);
+}
 .pulse-container {
   display: flex;
 }
 .pulse {
-  background-color: black;
-  border-radius: 50%;
-  margin: 0 auto;
   width: 20px;
   height: 20px;
+  background-color: var(--background);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  margin: 0 auto;
 }
 .pulse-first {
-  background-color: red;
+  background-color: var(--accent);
 }
 .pulse-other {
-  background-color: var(--purple);
+  background-color: var(--secondary);
 }
 .start-stop {
-  background-color: var(--purple);
-  color: white;
+  color: var(--text);
+  background: var(--secondary);
   align-self: center;
   border: none;
   border-radius: 3px;
   transition: background-color 0.3s ease-in-out;
   font-size: 12px;
   padding: 0.2rem 1rem;
-}
-.start-stop:hover {
-  cursor: pointer;
-  background-color: var(--dark-purple);
 }
 .main-container {
   margin-top: 5px;
@@ -214,23 +225,23 @@ form {
   margin-bottom: 10px;
   resize: none;
   border: none;
-  color: black;
-  background: var(--light-purple);
+  color: var(--text);
+  background: var(--background);
 }
 .input textarea::placeholder {
   text-align: center;
   font-weight: 500;
-  color: black;
+  color: var(--primary);
 }
 textarea::-webkit-scrollbar {
   display: none;
   width: 7px;
 }
 textarea::-webkit-scrollbar-track {
-  background-color: #9eaad1;
+  background: var(--primary);
 }
 textarea::-webkit-scrollbar-thumb {
-  background-color: #6f7eb4;
+  background: var(--primary);
 }
 .lyric-result.edit {
   display: none;
@@ -251,12 +262,13 @@ textarea::-webkit-scrollbar-thumb {
   font-weight: 600;
 }
 .active {
-  background-color: red;
+  background-color: var(--secondary);
 }
 .input [type="submit"],
 .editBTN {
-  background-color: var(--purple);
-  color: white;
+  color: var(--text);
+  background: var(--secondary);
+  text-transform: uppercase;
   align-self: center;
   border: none;
   border-radius: 3px;
@@ -264,15 +276,10 @@ textarea::-webkit-scrollbar-thumb {
   font-size: 12px;
   padding: 0.2rem 1rem;
 }
-.input input[type="submit"]:hover,
-.editBTN:hover {
-  cursor: pointer;
-  background-color: var(--dark-purple);
-}
 .error {
   padding: 1rem;
-  border: 1px solid red;
-  background-color: var(--light-red);
-  color: white;
+  border: 1px solid var(--acent);
+  background-color: var(--secondary);
+  color: var(--text);
   text-align: center;
 }
