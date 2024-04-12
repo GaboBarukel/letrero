@@ -1,14 +1,12 @@
 import * as UI from "./interfaz.js";
 import Timer from "./timer.js";
-// import LocomotiveScroll from "locomotive-scroll";
+
 //METRONOME CONTROL
 let bpm = 90;
 let beatsPerMeasure = 4;
 let count = 0;
 let flashSpeed = 150;
 let activeIndex = 0;
-// let countDown = true;
-// let playState = false;
 
 // Increase and Decrease metronome speed btns
 UI.decreaseTempoBTN.addEventListener("click", () => {
@@ -35,15 +33,6 @@ UI.tempoSlider.addEventListener("input", () => {
   pulseSpeedUpdate();
 });
 
-// UI.countDownControllerBTN.addEventListener("click", () => {
-//   if (countDown) {
-//     countDown = false;
-//     UI.countDownControllerBTN.textContent = "No CountDown";
-//   } else {
-//     countDown = true;
-//     UI.countDownControllerBTN.textContent = "CountDown";
-//   }
-// });
 
 //Amount of beats per measure controller(functional)
 UI.subtractBeats.addEventListener("click", () => {
@@ -130,68 +119,7 @@ function cleanPulseDisplay() {
   }
 }
 
-//LYRIC HANDLING
-const setLyric = (e) => {
-  e.preventDefault();
-
-  const letra = document.querySelector("#lyric-area").value;
-  const lyrArr = document.querySelector("#lyric-area").value.split("\n");
-  cleanLyric();
-  if (letra === "") {
-    UI.errorMessage.textContent = "Error.. no hay letra..";
-    UI.errorMessage.classList.add("error");
-    setTimeout(() => {
-      UI.errorMessage.textContent = "";
-      UI.errorMessage.classList.remove("error");
-    }, 3000);
-
-    return;
-  }
-
-  makeLyricUL(lyrArr);
-};
-
-const cleanLyric = () => {
-  while (UI.lyricResult.firstChild) {
-    UI.lyricResult.removeChild(UI.lyricResult.firstChild);
-  }
-};
-
-const makeLyricUL = (lineas) => {
-  //debugger;
-  UI.textDisplay.classList.remove("edit");
-  UI.textDisplay.classList.add("play");
-  UI.formContainer.classList.add("play");
-  // if (countDown) {
-  //   let liElement = document.createElement("li");
-  //   liElement.classList.add("estilo-li");
-
-  //   let br = document.createElement("br");
-  //   liElement.appendChild(br);
-  //   UI.lyricResult.appendChild(liElement);
-  // }
-  lineas.forEach((linea) => {
-    let liElement = document.createElement("li");
-
-    liElement.classList.add("estilo-li");
-
-    if (linea === "") {
-      let br = document.createElement("br");
-      liElement.appendChild(br);
-    } else {
-      liElement.innerText = `${linea}`;
-    }
-    UI.lyricResult.appendChild(liElement);
-  });
-  // console.dir(UI.lyricResult.lastChild.scrollHeight);
-};
-
-const editModeHandler = () => {
-  UI.textDisplay.classList.remove("play");
-  UI.textDisplay.classList.add("edit");
-  UI.formContainer.classList.remove("play");
-};
-
+//TRYING TO SEPARATE ALL LYRIC RELATED FUNCTIONS, EXCEPT THIS
 const lyricIteration = (activeIndex, lyricUL) => {
   if (activeIndex < lyricUL.length) {
     lyricUL[activeIndex].classList.add("active");
@@ -226,7 +154,6 @@ const controlTimer = () => {
     myTimer.start();
     isRunning = true;
     UI.metronomeControllerBTN.textContent = "STOP";
-    // debugger;
   } else {
     myTimer.stop();
     activeIndex = 0;
@@ -236,27 +163,5 @@ const controlTimer = () => {
   }
 };
 
-//SCROLLING
-// const scroll = new LocomotiveScroll();
-
 //MAIN EVENT LISTENERS
-UI.textForm.addEventListener("submit", setLyric);
-
-UI.editBTN.addEventListener("click", editModeHandler);
-
 UI.metronomeControllerBTN.addEventListener("click", controlTimer);
-
-let myScroller = document.querySelector(".lyric-result");
-
-//CLICK ON UL TO TEST SCROLLING EVENT
-// UI.lyricResult.addEventListener("click", (e) => {
-//   if (e.target.classList.contains("active")) {
-//     e.target.classList.remove("active");
-//   } else {
-//     e.target.classList.add("active");
-//     scroll.smoothScroll("." + e.target.classList[1], (60000 / bpm) * 4);
-//   }
-//   console.log(e.target);
-//   console.log(e.target.getBoundingClientRect().height);
-//   console.log(e.target.getBoundingClientRect().top);
-// });
