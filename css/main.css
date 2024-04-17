@@ -284,7 +284,7 @@ textarea::-webkit-scrollbar-thumb {
 }
 .error {
   padding: 1rem;
-  border: 1px solid var(--acent);
+  border: 1px solid var(--accent);
   background-color: var(--secondary);
   color: var(--text);
   text-align: center;
