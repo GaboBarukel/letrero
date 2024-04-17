@@ -66,7 +66,10 @@ h1 {
   display: flex;
   justify-content: space-around;
 }
-.tempo-settings .adjust-tempo-btn {
+.adjust-tempo-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--text);
   border: 1px solid var(--primary);
   background: var(--background);
@@ -134,6 +137,9 @@ h1 {
   font-size: 17px;
 }
 .stepper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--text);
   border: 1px solid var(--primary);
   background: var(--background);
