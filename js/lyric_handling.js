@@ -53,23 +53,20 @@ const setLyric = (e) => {
     UI.formContainer.classList.remove("play");
   };
   
-//   const lyricIteration = (activeIndex, lyricUL) => {
-//     if (activeIndex < lyricUL.length) {
-//       lyricUL[activeIndex].classList.add("active");
-//       if (activeIndex >= 1) {
-//         lyricUL[activeIndex - 1].classList.remove("active");
-//       }
-//     }
-//     if (activeIndex < lyricUL.length) {
-//       lyricUL[activeIndex].scrollIntoView({
-//         behavior: "smooth",
-//         block: "center",
-//         inline: "start",
-//       });
-//     }
-//   };
+  const lyricIteration = (activeIndex, lyricUL) => {
+    if (activeIndex < lyricUL.length) {
+      lyricUL[activeIndex].classList.add("active");
+      if (activeIndex >= 1) {
+        lyricUL[activeIndex - 1].classList.remove("active");
+      }
+    }
+    if (activeIndex < lyricUL.length) {
+      lyricUL[activeIndex].scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "start",
+      });
+    }
+  };
 
-
-  UI.textForm.addEventListener("submit", setLyric);
-
-  UI.editBTN.addEventListener("click", editModeHandler);
+  export {setLyric,editModeHandler,lyricIteration}
