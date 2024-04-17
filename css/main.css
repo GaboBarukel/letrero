@@ -20,6 +20,7 @@
 html {
   box-sizing: border-box;
 }
+
 *,
 *:before,
 *:after {
@@ -43,18 +44,18 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   gap: 10px;
   margin: 10px 0;
-  align-items: center;
 }
 .metronome {
-  --metronome-border: 1px solid var(--primary);
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
-  width: 100%;
+  padding: 10px 0;
+  --metronome-border: 1px solid var(--primary);
   border-top: var(--metronome-border);
   border-bottom: var(--metronome-border);
-  padding: 10px 0;
 }
 .bpm-range {
   width: 30%;
@@ -72,48 +73,48 @@ h1 {
   justify-content: space-around;
 }
 .adjust-tempo-btn {
+  width: 20px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--text);
-  border: 1px solid var(--primary);
   background: var(--background);
-  font-weight: bold;
-  border-radius: 50%;
-  text-align: center;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
   font-size: var(--fs-default);
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
 }
-.tempo-settings .adjust-tempo-btn:hover {
+.adjust-tempo-btn:hover {
   color: var(--background);
-  border: 1px solid var(--text);
   background: var(--accent);
+  border: 1px solid var(--text);
 }
 [type="range"] {
-  appearance: none;
-  background-color: transparent;
   width: 80%;
+  background-color: transparent;
+  appearance: none;
 }
 [type="range"]:focus {
   outline: none;
 }
 [type="range"]::-webkit-slider-thumb {
-  border-radius: 50%;
-  background-color: var(--primary);
-  cursor: pointer;
   width: 16px;
   height: 16px;
+  background-color: var(--primary);
   margin-top: -8px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 [type="range"]::-moz-range-thumb {
-  border-radius: 50%;
-  background-color: var(--primary);
-  cursor: pointer;
-  border: none;
   width: 16px;
   height: 16px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
 }
 [type="range"]::-webkit-slider-runnable-track {
   height: 2px;
@@ -130,8 +131,8 @@ h1 {
   width: 30%;
   display: flex;
   flex-direction: column;
-  gap: 10px 0;
   justify-content: space-evenly;
+  gap: 10px 0;
 }
 .measures {
   display: flex;
@@ -142,19 +143,19 @@ h1 {
   font-size: var(--fs-default);
 }
 .stepper {
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: var(--fs-default);
+  font-weight: bold;
+  text-align: center;
+  background: var(--background);
   color: var(--text);
   border: 1px solid var(--primary);
-  background: var(--background);
-  width: 20px;
-  height: 20px;
-  font-size: var(--fs-default);
-  margin: 0 10px;
   border-radius: 50%;
-  text-align: center;
-  font-weight: bold;
   cursor: pointer;
 }
 .stepper:hover{
@@ -182,22 +183,22 @@ h1 {
 .start-stop {
   color: var(--text);
   background: var(--secondary);
+  padding: 0.2rem 1rem;
+  font-size: var(--fs-medium);
   border: none;
   border-radius: 3px;
-  font-size: var(--fs-medium);
-  padding: 0.2rem 1rem;
 }
 .main-container {
   margin-top: 5px;
   height: 100%;
 }
 .form-and-text-container {
-  font-weight: 600;
-  font-size: var(--fs-default);
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  font-weight: 600;
+  font-size: var(--fs-default);
   text-align: center;
 }
 .text-container {
@@ -211,6 +212,7 @@ h1 {
 form {
   width: 100%;
 }
+/* TODO: aca quizas podriamos usar solo input sin clase */
 .input.play {
   display: none;
 }
@@ -218,24 +220,23 @@ form {
 .lyric-result.play {
   width: 100%;
   text-align: center;
-  display: absolute;
   flex-direction: column;
   align-items: center;
 }
 .input textarea,
 .lyric-list-container {
-  text-align: center;
-  font-size: var(--fs-default);
-  font-weight: 600;
-  outline: none;
-  padding: 3rem 1rem 1rem 1rem;
   height: 450px;
   width: 100%;
+  padding: 3rem 1rem 1rem 1rem;
   margin-bottom: 10px;
-  resize: none;
-  border: none;
+  font-size: var(--fs-default);
+  font-weight: 600;
+  text-align: center;
   color: var(--text);
   background: var(--background);
+  outline: none;
+  resize: none;
+  border: none;
 }
 .input textarea::placeholder {
   text-align: center;
@@ -260,11 +261,11 @@ textarea::-webkit-scrollbar-thumb {
 }
 .lyric-list {
   width: 100%;
-  list-style: none;
+  text-align: left;
   padding-top: 2rem;
   padding-left: 0;
   margin: 0;
-  text-align: left;
+  list-style: none;
 }
 .lyric-list li {
   text-align: center;
@@ -280,7 +281,6 @@ textarea::-webkit-scrollbar-thumb {
   text-transform: uppercase;
   border: none;
   border-radius: 3px;
-  transition: background-color 0.3s ease-in-out;
   font-size: var(--fs-medium);
   padding: 0.2rem 1rem;
 }
